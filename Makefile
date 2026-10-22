@@ -19,33 +19,34 @@ DESCRIPTION  ?= Program to find the maximum value in an array
 all: $(TARGET)
 
 $(TARGET): $(SRC)
-  $(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 # Тесты
 test: $(TARGET)
-  ./tests/test.sh
+	./tests/test.sh
 
 # Очистка
 clean:
-  rm -f $(TARGET) *.deb *.buildinfo *.changes
-  rm -rf package
-  rm -rf debian/tmp debian/.debhelper debian/files debian/maxfinder
+	rm -f $(TARGET) *.deb *.buildinfo *.changes
+	rm -rf package
+	rm -rf debian/tmp debian/.debhelper debian/files debian/maxfinder
 
 # deb-пакет
 deb: $(TARGET)
-  rm -rf package
-  mkdir -p package/usr/local/bin
-  cp $(TARGET) package/usr/local/bin/
-  mkdir -p package/DEBIAN
-  echo "Package: $(PACKAGE_NAME)" > package/DEBIAN/control
-  echo "Version: $(VERSION)" >> package/DEBIAN/control
-  echo "Section: utils" >> package/DEBIAN/control
-  echo "Priority: optional" >> package/DEBIAN/control
-  echo "Architecture: $(ARCH)" >> package/DEBIAN/control
-  echo "Depends: libc6, libstdc++6" >> package/DEBIAN/control
-  echo "Maintainer: $(MAINTAINER)" >> package/DEBIAN/control
-  echo "Description: $(DESCRIPTION)" >> package/DEBIAN/control
-  dpkg-deb --build --root-owner-group package $(PACKAGE_NAME)-$(VERSION)-$(ARCH).deb
+	rm -rf package
+	mkdir -p package/usr/local/bin
+	cp $(TARGET) package/usr/local/bin/
+	mkdir -p package/DEBIAN
+	echo "Package: $(PACKAGE_NAME)" > package/DEBIAN/control
+	echo "Version: $(VERSION)" >> package/DEBIAN/control
+	echo "Section: utils" >> package/DEBIAN/control
+	echo "Priority: optional" >> package/DEBIAN/control
+	echo "Architecture: $(ARCH)" >> package/DEBIAN/control
+	echo "Depends: libc6, libstdc++6" >> package/DEBIAN/control
+	echo "Maintainer: $(MAINTAINER)" >> package/DEBIAN/control
+	echo "Description: $(DESCRIPTION)" >> package/DEBIAN/control
+	dpkg-deb --build --root-owner-group package $(PACKAGE_NAME)-$(VERSION)-$(ARCH).deb
 
 deb-full: clean
-  dpkg-buildpackage -us -uc -b
+	dpkg-buildpackage -us -uc -b
+	mv ../maxfinder_*.deb . 2>/dev/null || true
