@@ -1,0 +1,16 @@
+# бинарники
+findmax
+*.o
+
+# deb-пакеты
+*.deb
+*.buildinfo
+*.changes
+package/
+debian/tmp/
+debian/.debhelper/
+debian/files
+debian/maxfinder/
+
+# кэш Docker
+.docker/
