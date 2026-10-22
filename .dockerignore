@@ -1,0 +1,13 @@
+.git
+.gitignore
+*.deb
+*.buildinfo
+*.changes
+package/
+debian/tmp/
+debian/.debhelper/
+debian/files
+debian/maxfinder/
+*.o
+README.md
+.github/
