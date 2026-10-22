@@ -2,7 +2,7 @@ name: Build, Test, Package, Docker and Release
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     tags: ['v*']
   pull_request:
 
