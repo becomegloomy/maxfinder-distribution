@@ -1,0 +1,12 @@
+Source: maxfinder
+Section: utils
+Priority: optional
+Maintainer: Soft <sonya.kosmos69@mail.ru>
+Build-Depends: debhelper-compat (= 13), g++
+Standards-Version: 4.6.0
+
+Package: maxfinder
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Finds the maximum value in an integer array
+ Simple C++ program that reads N integers and prints the maximum.
