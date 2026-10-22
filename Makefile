@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -O2 -std=c++17
 
 # Имя бинарника и исходник
 TARGET = findmax
-SRC    = app.cpp
+SRC    = src/app.cpp
 
 # Переменные для deb-пакета (только для make deb)
 PACKAGE_NAME ?= findmax

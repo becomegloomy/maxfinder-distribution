@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /src
-COPY app.cpp Makefile ./
+COPY Makefile ./
+COPY src/ src/
 COPY debian/ debian/
 COPY tests/ tests/
 
