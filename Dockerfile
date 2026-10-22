@@ -16,7 +16,7 @@ RUN make && make deb
 # Финальный образ
 FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libstdc++6 \
     && rm -rf /var/lib/apt/lists/*
 
